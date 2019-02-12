@@ -1,0 +1,42 @@
+<div>
+  <br>
+  <br>
+  <div class="col-sm-3"><div class="well well-lg">
+      <label>Country Name:</label><li>{{country?.name}}</li></div></div>
+  <div class="col-sm-3"><div class="well well-lg">
+  <label>Country Subregion:</label><li>{{country?.subregion}}</li></div></div>
+  <div class="col-sm-3"><div class="well well-lg">
+  <label>Country Population:</label><li>{{country?.population}}</li>
+  </div></div>
+  <div class="col-sm-3"><div class="well well-lg">
+  <label>Country Capital:</label><li>{{country?.capital}}</li></div></div>
+  <br>
+  <p>_________________________________________________________________________________________________________________________________________________</p>  
+  <div class="well well-lg">
+      <label>Courrencies Details:</label>
+      <span class="col-sm-offset-9"></span>
+          <img src="{{country?.flag}}" width="200" height="100">
+      <div *ngFor="let value of country?.currencies">
+        <label>Courrency Code:</label><li>{{value.code}}</li> 
+        <label>Courrency Name:</label><li>{{value.name}}</li>
+        <label>Courrency Symbol:</label><li>{{value.symbol}}</li>
+      </div>
+      <br>
+      Latitude
+      <div *ngFor="let value of country?.latlng ">
+        {{value}}
+      </div>
+      <br>
+  </div>
+  
+  
+
+
+
+
+<div  *ngIf="fevSet === false">
+    <button class="btn btn-default btn-lg btn-success" (click)="addFev(country?.name,country?.flag)"><span class="glyphicon glyphicon-heart "></span>Add Fev</button>
+</div>
+<div *ngIf="fevSet === true" ><button class="btn btn-default btn-lg btn-primary" (click)="removeFev(country?.name)"> <span class="glyphicon glyphicon-heart "></span>Remove Fev</button></div>
+<!-- {{country.latlng}} -->
+
